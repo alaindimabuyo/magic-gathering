@@ -15,8 +15,8 @@ const CurrentCard = ({ match }: any) => {
         // eslint-disable-next-line
       }, []);
    
-    const mana = card?.manaCost?.replace(/[\{\}']+/g,'').split('')
- 
+    const mana = card?.manaCost?.replace(/[']+/g,'').split('')
+
     if (loading) {
         return <Spinner />;
       } else {
