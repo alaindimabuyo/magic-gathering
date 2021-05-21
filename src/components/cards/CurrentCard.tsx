@@ -18,7 +18,11 @@ const CurrentCard = ({ match }: any) => {
     const mana = card?.manaCost?.replace(/[']+/g,'').split('')
 
     if (loading) {
-        return <Spinner />;
+        return (
+            <CenterDiv>
+                <Spinner />
+            </CenterDiv>
+        );
       } else {
         return (
             <div className="container">
