@@ -1,36 +1,38 @@
 import { Link } from "react-router-dom";
 import {useMagicGatheringState} from "../../context/MagicGatheringContext";
-import { CLEAR_STATE } from "../../context/types"
+
+
 const Navbar = () => {
-  const {state, dispatch} = useMagicGatheringState()
-
-  const clearState = () => {
-    dispatch({ type: CLEAR_STATE });
-  };
-
+  const {clearState, setDark, isDark} = useMagicGatheringState()
   return (
-    <nav className='navbar bg-dark'>
+    <nav className={`navbar ${isDark ? 'bg-dark': 'bg-light'}`}>
       <Link onClick={clearState} to='/'>
-        Pokemon
+        <span className={`${isDark ? 'text-light': 'text-dark'}`}>Magic Gathering</span>
       </Link>
 
       <ul>
         <li>
           <Link onClick={clearState} to='/'>
-            Home
+            <span className={`${isDark ? 'text-light': 'text-dark'}`}>Home</span>
           </Link>
         </li>
         <li>
-          <Link onClick={clearState} to='/items'>
-            Items
+          <Link onClick={clearState} to='/cards'>
+            <span className={`${isDark ? 'text-light': 'text-dark'}`}>Cards</span>
           </Link>
         </li>
         <li>
-          <Link to='/about'>About</Link>
+          <label className="switch" htmlFor="checkbox" title="Change color scheme to dark mode">
+            <input type="checkbox" id="checkbox" onChange={() => setDark()}/>
+            <div className="slider round"></div>
+            <div className="toggle-moon">🌙</div>
+            <div className="toggle-sun">☀️</div>
+          </label>
         </li>
       </ul>
     </nav>
   );
 };
+
 
 export default Navbar;

@@ -3,7 +3,7 @@
 /* Global Styles */
 :root {
   --primary-color: #003699;
-  --dark-color: #333333;
+  --dark-color: #1b1a1a;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -15,13 +15,6 @@
   padding: 0;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
-}
 
 a {
   color: var(--primary-color);
@@ -42,10 +35,11 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  max-width: 2100px;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+  min-height: 100vh;
 }
 
 /* Text Styles*/
@@ -61,6 +55,13 @@ img {
   margin-bottom: 1rem;
 }
 
+.text-light {
+  color:rgb(255, 255, 255)
+}
+
+.text-dark {
+  color:rgb(15, 15, 15)
+}
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -94,7 +95,7 @@ img {
 .card {
   padding: 2rem;
   border: #ccc 1px dotted;
-  margin: 0.7rem 0;
+  margin: 1rem
 }
 
 /* List */
@@ -236,7 +237,7 @@ img {
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 
 .btn-light,
@@ -244,11 +245,20 @@ img {
 .badge-light,
 .alert-light {
   background: var(--light-color);
-  color: #333;
+  color: rgb(20, 20, 20);
+}
+
+.bg-light {
+  background: var(--light-color);
+  color: rgb(20, 20, 20);
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
 }
 
 .btn-dark,
-.bg-dark,
 .badge-dark,
 .alert-dark {
   background: var(--dark-color);
@@ -284,7 +294,6 @@ img {
   opacity: 0.8;
 }
 
-.bg-light,
 .badge-light {
   border: #ccc solid 1px;
 }
@@ -352,6 +361,73 @@ table td {
 table th {
   background: var(--light-color);
 }
+
+
+.switch {
+  display: flex;
+  height: 36px;
+  position: relative;
+  width: 70px;
+}
+
+.switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #FFF;
+  border:1px solid #000;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #333;
+  border:1px solid #000;
+  bottom: 3px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+  z-index:421;
+}
+
+input:checked + .slider {
+  background-color: #101211;
+} 
+
+input:checked + .slider:before {
+  transform: translateX(34px);
+  border-color:#CFCFCF;
+  background-color:#EFEFEF;
+} 
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-moon, .toggle-sun {
+  width:50%;
+  text-align:center;
+  padding:0.25em;
+  position:relative;
+  z-index:420;
+}
+
+/* general styling */
+
+
 
 /* Navbar */
 .navbar {

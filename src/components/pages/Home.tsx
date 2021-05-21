@@ -1,9 +1,9 @@
 import React from 'react'
-
+import CardEntries from "../cards/CardEntries"
 const Home = () => {
     return (
-        <div>
-            asdasd
+        <div >
+            <CardEntries></CardEntries>
         </div>
     )
 }
