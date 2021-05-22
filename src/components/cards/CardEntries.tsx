@@ -44,7 +44,7 @@ const CardEntries = () => {
                     <div className='card' key={card.id}>
                     <div className='col-s12'>
                       <Link to={`/cards/${card.multiverseid}`}>
-                        <PokemonImage
+                        <CardImage
                           src={`${card.imageUrl}`}
                           alt='card'
                         />
@@ -62,7 +62,7 @@ const CardEntries = () => {
     )
 }
 
-let PokemonImage = styled.img`
+let CardImage = styled.img`
   width: 60%;
   height: auto;
   &:hover {
